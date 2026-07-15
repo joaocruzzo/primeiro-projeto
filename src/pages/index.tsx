@@ -1,17 +1,19 @@
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { HeroSection } from "@/components/hero-section";
+import { CallToAction } from "@/components/call-to-action";
+import { FeatureSection } from "@/components/feature-section";
+import { SupportSection } from "@/components/support-section";
+import { CustomerStorySection } from "@/components/customer-story-section";
 
 export default function Home() {
   return (
-    <div />
+    <>
+      <article className="flex flex-col">
+        <HeroSection />
+        <FeatureSection />
+        <SupportSection />
+        <CustomerStorySection />
+        <CallToAction />
+      </article>
+    </>
   );
 }
