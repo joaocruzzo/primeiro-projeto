@@ -2,11 +2,14 @@ import type { Config } from 'tailwindcss';
 
 export default {
   darkMode: ['class'],
+
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/templates/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+
   theme: {
     container: {
       center: true,
@@ -15,20 +18,24 @@ export default {
         '2xl': '1200px',
       },
     },
+
     extend: {
       colors: {
         white: '#FFFFFF',
+
         blue: {
           100: '#7EA4D7',
           200: '#2C85FC',
           300: '#2266C1',
           400: '#0D284C',
         },
+
         cyan: {
           100: '#2DEBFC',
           200: '#187D86',
           300: '#0E474C',
         },
+
         gray: {
           100: '#F9FAFC',
           200: '#D3D5D9',
@@ -40,15 +47,18 @@ export default {
           800: '#0B0C0F',
         },
       },
+
       borderRadius: {
         lg: '0.5rem',
         md: 'calc(0.5rem - 2px)',
         sm: 'calc(0.5rem - 4px)',
       },
+
       fontFamily: {
         sans: ['PT Sans Caption', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
+      
       fontSize: {
         // Headings - PT Sans Caption
         'heading-hg': ['40px', { lineHeight: '120%', fontWeight: '700' }],

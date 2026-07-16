@@ -1,16 +1,16 @@
-import { ArrowRight, Clock, Store } from "lucide-react"
-
 import Link from "next/link"
 import Image from "next/image"
 
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
+
+import { ArrowRight, Clock, Store } from "lucide-react"
 
 export const HeroSection = () => {
     return (
         <section className="container relative flex items-center justify-center mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[20rem] md:h-[36rem] items-center">
                 <div className="flex flex-col items-center justify-center gap-4 md:items-start lg:items-start">
-                    <h1 className="text-heading-hg text-gray-100">
+                    <h1 className="text-heading-hg text-gray-100 font-sans">
                         Venda seus produtos como afiliado em um único lugar
                     </h1>
 
@@ -19,7 +19,7 @@ export const HeroSection = () => {
                             <div className="flex items-center gap-2">
                                 <Clock className="h-4 w-4 text-cyan-100" />
 
-                                <span className="text-gray-200">
+                                <span className="text-gray-200 text-body-md">
                                     Crie o seu site em menos de 5 minutos
                                 </span>
                             </div>
@@ -27,7 +27,7 @@ export const HeroSection = () => {
                             <div className="flex items-center gap-2">
                                 <Store className="h-4 w-4 text-cyan-100" />
 
-                                <span className="text-gray-200">
+                                <span className="text-gray-200 text-body-md">
                                     Acompanhe e otimize seu negócio online
                                 </span>
                             </div>
@@ -50,7 +50,7 @@ export const HeroSection = () => {
 
                 <div className="relative h-[20rem] hidden md:h-full order-first md:order-last items-center justify-center md:flex lg:flex">
                     <Image
-                        src="/hero-image.svg"
+                        src="/hero-section.svg"
                         alt="ilustração com ícones de store, tag e sacola"
 
                         width={200}
