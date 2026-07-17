@@ -16,7 +16,7 @@ export const Header = () => {
                             Home
                         </ActiveLink>
 
-                        <ActiveLink href="blog">
+                        <ActiveLink href="/blog">
                             Blog
                         </ActiveLink>
 
