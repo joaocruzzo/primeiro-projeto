@@ -1,6 +1,5 @@
 import {
     HeroSection,
-    CallToAction,
     FeatureSection,
     SupportSection,
     CustomerStorySection
@@ -13,7 +12,6 @@ export const LandingPage = () => {
             <FeatureSection />
             <SupportSection />
             <CustomerStorySection />
-            <CallToAction />
         </article>
     )
 }
