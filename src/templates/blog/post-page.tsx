@@ -11,28 +11,20 @@ import Image from "next/image"
 
 import { useShare } from "@/hooks"
 
-import { useRouter } from "next/router"
-
-import { allPosts } from "contentlayer/generated"
+import { Post } from "contentlayer/generated"
 
 import { Avatar } from "@/components/avatar"
 import { Button } from "@/components/ui/button"
 import { Markdown } from "@/components/markdown"
 
-export const PostPage = () => {
-    const router = useRouter()
+export type PostPageProps = {
+    post: Post
+}
 
-    const slug = router.query.slug as string
+export const PostPage = ({ post }: PostPageProps) => {
+    const publishedDate = new Date(post.date).toLocaleDateString('pt-BR')
 
-    const post = allPosts.find((post) => post.slug.toLowerCase() === slug?.toLowerCase())
-
-    if(!post) {
-        return
-    }
-
-    const publishedDate = new Date(post?.date).toLocaleDateString('pt-BR')
-
-    const postUrl = `https://site.set/blog/${slug}`
+    const postUrl = `https://site.set/blog/${post.slug}`
 
     const { shareButtons } = useShare({
         url: postUrl,
