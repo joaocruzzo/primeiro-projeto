@@ -132,5 +132,3 @@ Notes:
 
 ## License
 MIT
-
----
