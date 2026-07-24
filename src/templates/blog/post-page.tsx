@@ -9,13 +9,11 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 
-import { useShare } from "@/hooks"
-
 import { Post } from "contentlayer/generated"
 
 import { Avatar } from "@/components/avatar"
-import { Button } from "@/components/ui/button"
 import { Markdown } from "@/components/markdown"
+import { PostShareDesktop, PostShareMobile } from "./components/post-share"
 
 export type PostPageProps = {
     post: Post
@@ -25,12 +23,6 @@ export const PostPage = ({ post }: PostPageProps) => {
     const publishedDate = new Date(post.date).toLocaleDateString('pt-BR')
 
     const postUrl = `https://site.set/blog/${post.slug}`
-
-    const { shareButtons } = useShare({
-        url: postUrl,
-        title: post.title,
-        text: post.description
-    })
 
     return (
         <main className="py-24 text-gray-100">
@@ -56,23 +48,11 @@ export const PostPage = ({ post }: PostPageProps) => {
                         </BreadcrumbList>
                     </Breadcrumb>
 
-                    <aside className="space-y-6 lg:hidden">
-                        <div className="rounded-lg bg-gray-700">
-                            <div className="flex gap-2 justify-end">
-                                {shareButtons.map((provider) => (
-                                    <Button
-                                        key={provider.provider}
-                                        onClick={() => provider.action()}
-
-                                        className="py-6"
-                                        variant="outline"
-                                    >
-                                        {provider.icon}
-                                    </Button>
-                                ))}
-                            </div>
-                        </div>
-                    </aside>
+                    <PostShareMobile
+                        url={postUrl}
+                        title={post.title}
+                        description={post.description}
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 lg:gap-12">
@@ -121,28 +101,11 @@ export const PostPage = ({ post }: PostPageProps) => {
                         </div>
                     </article>
 
-                    <aside className="space-y-6 hidden lg:block">
-                        <div className="rounded-lg bg-gray-700">
-                            <h2 className="mb-4 text-heading-xs text-gray-100">
-                                Compartilhar
-                            </h2>
-
-                            <div className="space-y-3">
-                                {shareButtons.map((provider) => (
-                                    <Button
-                                        key={provider.provider}
-                                        onClick={() => provider.action()}
-
-                                        variant="outline"
-                                        className="w-full justify-start gap-2"
-                                    >
-                                        {provider.icon}
-                                        {provider.name}
-                                    </Button>
-                                ))}
-                            </div>
-                        </div>
-                    </aside>
+                    <PostShareDesktop
+                        url={postUrl}
+                        title={post.title}
+                        description={post.description}
+                    />
                 </div>
             </div>
         </main>

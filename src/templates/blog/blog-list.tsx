@@ -1,6 +1,6 @@
-import { Inbox } from "lucide-react";
+'use client'
 
-import { useRouter } from "next/router";
+import { Inbox } from "lucide-react";
 
 import { Search } from "@/components/search";
 
@@ -9,14 +9,16 @@ import { Post } from "contentlayer/generated";
 import { PostCard } from "./components/post-card";
 import { PostGridCard } from "./components/post-grid-card";
 
+import { useSearchParams } from "next/navigation";
+
 export type BlogListProps = {
     posts: Post[]
 }
 
 export function BlogList({ posts }: BlogListProps) {
-    const router = useRouter()
+    const searchParams = useSearchParams()
 
-    const query = router.query.q as string
+    const query = searchParams?.get('q') ?? ""
 
     const pageTitle = query ? `Resultados de busca para "${query}"` : "Dicas e estratégias para impulsionar seu negócio"
 
